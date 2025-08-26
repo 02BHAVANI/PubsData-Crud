@@ -1,0 +1,34 @@
+﻿@model PubsData.Domain.Entities.Title
+@{
+    ViewData["Title"] = "Title Details";
+}
+
+<h2>Title Details</h2>
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id</dt>
+            <dd class="col-sm-9">@Model.TitleId</dd>
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+            <dt class="col-sm-3">Type</dt>
+            <dd class="col-sm-9">@Model.Type</dd>
+            <dt class="col-sm-3">Publisher</dt>
+            <dd class="col-sm-9">@Model.PubId</dd>
+            <dt class="col-sm-3">Price</dt>
+            <dd class="col-sm-9">@Model.Price?.ToString("C")</dd>
+            <dt class="col-sm-3">Advance</dt>
+            <dd class="col-sm-9">@Model.Advance</dd>
+            <dt class="col-sm-3">Royalty</dt>
+            <dd class="col-sm-9">@Model.Royalty</dd>
+            <dt class="col-sm-3">YTD Sales</dt>
+            <dd class="col-sm-9">@Model.YtdSales</dd>
+            <dt class="col-sm-3">Notes</dt>
+            <dd class="col-sm-9">@Model.Notes</dd>
+            <dt class="col-sm-3">Pub Date</dt>
+            <dd class="col-sm-9">@Model.PubDate.ToString("yyyy-MM-dd")</dd>
+        </dl>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Back</a>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.TitleId })">Edit</a>
+    </div>
+</div>

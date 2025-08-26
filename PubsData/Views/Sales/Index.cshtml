@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PubsData.Domain.Entities.Sales>
+@{
+    ViewData["Title"] = "Sales";
+    var q = ViewBag.Query as string;
+}
+
+<h2 class="mb-3">Sales</h2>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="text" name="q" value="@q" class="form-control" placeholder="Search by store ID, order no, title ID, payterms" />
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-primary" type="submit">Search</button>
+        <a class="btn btn-success ms-2" href="@Url.Action("Create")">Add Sale</a>
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No sales found.</div>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Store ID</th>
+                <th>Order #</th>
+                <th>Title Id</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Qty</th>
+                <th>Payterms</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.StorId</td>
+                    <td>@s.OrdNum</td>
+                    <td>@s.TitleId</td>
+                    <td>@s.TitleName ?? "-" </td>
+                    <td>@s.OrdDate.ToString("yyyy-MM-dd")</td>
+                    <td>@s.Qty</td>
+                    <td>@s.Payterms</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-secondary" href="@Url.Action("Edit", new { storId = s.StorId, ordNum = s.OrdNum, titleId = s.TitleId })">Edit</a>
+                        <a class="btn btn-sm btn-info text-white" href="@Url.Action("Details", new { storId = s.StorId, ordNum = s.OrdNum, titleId = s.TitleId })">Details</a>
+                        <a class="btn btn-sm btn-danger" data-confirm="Delete this sale?" href="@Url.Action("Delete", new { storId = s.StorId, ordNum = s.OrdNum, titleId = s.TitleId })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

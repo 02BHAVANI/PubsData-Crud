@@ -1,0 +1,24 @@
+﻿@model PubsData.Domain.Entities.Publisher
+@{
+    ViewData["Title"] = "Publisher Details";
+}
+
+<h2>Publisher Details</h2>
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Id</dt>
+            <dd class="col-sm-9">@Model.PubId</dd>
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.PubName</dd>
+            <dt class="col-sm-3">City</dt>
+            <dd class="col-sm-9">@Model.City</dd>
+            <dt class="col-sm-3">State</dt>
+            <dd class="col-sm-9">@Model.State</dd>
+            <dt class="col-sm-3">Country</dt>
+            <dd class="col-sm-9">@Model.Country</dd>
+        </dl>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Back</a>
+        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.PubId })">Edit</a>
+    </div>
+</div>

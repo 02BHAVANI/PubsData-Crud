@@ -1,0 +1,56 @@
+﻿@model PubsData.Domain.Entities.Publisher
+@{
+    bool isEdit = ViewData["IsEdit"] as bool? ?? false;
+}
+
+<div class="row g-3">
+    <div class="col-md-3">
+        <label class="form-label">Publisher Id</label>
+        @if (isEdit)
+        {
+            <!-- Read-only for Edit -->
+            <input asp-for="PubId" class="form-control" readonly />
+            <input type="hidden" asp-for="PubId" />
+        }
+        else
+        {
+            <!-- Editable for Create -->
+            <input asp-for="PubId" class="form-control"
+                   placeholder="1389"
+                   pattern="^(1389|0736|0877|1622|1756|99\d\d)$"
+                   title="PubId must be 1389, 0736, 0877, 1622, 1756, or 99xx"
+                   required />
+        }
+        <span asp-validation-for="PubId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-9">
+        <label class="form-label">Name</label>
+        <input asp-for="PubName" class="form-control"
+               maxlength="40"
+               required />
+        <span asp-validation-for="PubName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">City</label>
+        <input asp-for="City" class="form-control"
+               pattern="^[A-Za-z\s]{2,20}$"
+               title="City must be 2–20 letters" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">State</label>
+        <input asp-for="State" class="form-control"
+               pattern="^[A-Z]{2}$"
+               title="State must be 2 uppercase letters" />
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Country</label>
+        <input asp-for="Country" class="form-control" maxlength="30" />
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model PubsData.Domain.Entities.Sales
+
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <label asp-for="StorId" class="form-label"></label>
+        <select asp-for="StorId" class="form-control"
+                asp-items="ViewBag.StorId">
+            <option value="">-- Select Store --</option>
+        </select>
+        <span asp-validation-for="StorId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="OrdNum" class="form-label"></label>
+        <input asp-for="OrdNum" class="form-control" maxlength="20" required />
+        <span asp-validation-for="OrdNum" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="TitleId" class="form-label"></label>
+        <select asp-for="TitleId" class="form-control"
+                asp-items="ViewBag.TitleId">
+            <option value="">-- Select Title --</option>
+        </select>
+        <span asp-validation-for="TitleId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="TitleName" class="form-label"></label>
+        <input asp-for="TitleName" class="form-control" readonly />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="OrdDate" class="form-label"></label>
+        <input asp-for="OrdDate" type="date" class="form-control" required />
+        <span asp-validation-for="OrdDate" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Qty" class="form-label"></label>
+        <input asp-for="Qty" type="number" class="form-control" min="1" max="32767" required />
+        <span asp-validation-for="Qty" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Payterms" class="form-label"></label>
+        <input asp-for="Payterms" class="form-control" maxlength="12" required />
+        <span asp-validation-for="Payterms" class="text-danger"></span>
+    </div>
+
+</div>

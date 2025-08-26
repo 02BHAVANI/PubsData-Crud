@@ -1,0 +1,81 @@
+﻿@model PubsData.Domain.Entities.Author
+@{
+    var isEdit = ViewData["IsEdit"] != null && (bool)ViewData["IsEdit"];
+}
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <label asp-for="AuId" class="form-label"></label>
+        <input asp-for="AuId" class="form-control"
+               placeholder="123-45-6789"
+               pattern="^\d{3}-\d{2}-\d{4}$"
+               title="Format: 123-45-6789"
+               required
+               readonly="@(isEdit ? "readonly" : null)" />
+        <span asp-validation-for="AuId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="AuFName" class="form-label"></label>
+        <input asp-for="AuFName" class="form-control"
+               pattern="^[A-Za-z]{2,50}$"
+               title="First name must be 2–50 letters" required />
+        <span asp-validation-for="AuFName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="AuLName" class="form-label"></label>
+        <input asp-for="AuLName" class="form-control"
+               pattern="^[A-Za-z]{2,50}$"
+               title="Last name must be 2–50 letters" required />
+        <span asp-validation-for="AuLName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" class="form-control"
+               placeholder="123 456-7890"
+               pattern="\d{3} \d{3}-\d{4}"
+               title="Phone must be in format: 123 456-7890" required />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-8">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control"
+               maxlength="100"
+               title="Max 100 characters" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="City" class="form-label"></label>
+        <input asp-for="City" class="form-control"
+               pattern="^[A-Za-z\s]{2,50}$"
+               title="City must be 2–50 letters" required />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="State" class="form-label"></label>
+        <input asp-for="State" class="form-control"
+               pattern="^[A-Z]{2}$"
+               placeholder="e.g. CA"
+               title="Enter 2-letter state code" required />
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-2">
+        <label asp-for="Zip" class="form-label"></label>
+        <input asp-for="Zip" class="form-control"
+               pattern="^\d{5}$"
+               placeholder="12345"
+               title="Enter a 5-digit ZIP code" required />
+        <span asp-validation-for="Zip" class="text-danger"></span>
+    </div>
+
+    <div class="col-12 form-check mt-2">
+        <input class="form-check-input" type="checkbox" asp-for="Contract" />
+        <label class="form-check-label" asp-for="Contract"></label>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@model PubsData.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error</h1>
+<h2 class="text-danger">An error occurred while processing the request.</h2>
+@if (Model?.ShowRequestId == true)
+{
+    <p><strong>Request ID:</strong> <code>@Model.RequestId</code></p>
+}
+
+<p><a class="btn btn-primary" href="/">Back to Home</a></p>

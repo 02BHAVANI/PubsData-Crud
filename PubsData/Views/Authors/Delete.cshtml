@@ -1,0 +1,13 @@
+﻿@model PubsData.Domain.Entities.Author
+@{
+    ViewData["Title"] = "Delete Author";
+}
+
+<h2>Delete Author</h2>
+<div class="alert alert-warning">Delete @Model.AuFName @Model.AuLName (@Model.AuId)?</div>
+
+<form asp-action="Delete" method="post"> 
+    <input type="hidden" asp-for="AuId" /> 
+    <button class="btn btn-danger" type="submit">Delete</button> 
+    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a> 
+</form>

@@ -1,0 +1,18 @@
+﻿@model PubsData.Domain.Entities.Publisher
+@{
+    ViewData["Title"] = "Create Publisher";
+    ViewData["IsEdit"] = false; 
+}
+
+<h2>Create Publisher</h2>
+<form asp-action="Create" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="_Form" model="Model" />
+    <div class="mt-3">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
+    </div>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</form>

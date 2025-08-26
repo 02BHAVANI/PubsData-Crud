@@ -1,0 +1,96 @@
+﻿@model PubsData.Domain.Entities.Title
+
+@{
+    var isEdit = ViewData["IsEdit"] != null && (bool)ViewData["IsEdit"];
+}
+
+<div class="row g-3">
+    <div class="col-md-3">
+        <label asp-for="TitleId" class="form-label"></label>
+        <input asp-for="TitleId" class="form-control"
+               placeholder="PS7777"
+               pattern="^[A-Z]{2}\d{4}$"
+               title="2 letters followed by 4 digits (e.g., PS7777)"
+               maxlength="6"
+               required
+               readonly="@(isEdit ? "readonly" : null)" />
+        <span asp-validation-for="TitleId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control"
+               maxlength="80"
+               required
+               title="Name must be up to 80 characters" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Type" class="form-label"></label>
+        <input asp-for="Type" class="form-control"
+               maxlength="12"
+               required
+               pattern="^[A-Za-z]{1,12}$"
+               title="Type must be 1–12 letters" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="PubId" class="form-label"></label>
+        <select asp-for="PubId" class="form-select" asp-items="ViewBag.Publishers" required>
+            <option value="">-- Select Publisher --</option>
+        </select>
+        <span asp-validation-for="PubId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control"
+               type="number" min="0" max="1000000" step="0.01"
+               title="Price must be 0 or higher" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Advance" class="form-label"></label>
+        <input asp-for="Advance" class="form-control"
+               type="number" min="0" max="1000000" step="0.01"
+               title="Advance must be 0 or higher" />
+        <span asp-validation-for="Advance" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Royalty" class="form-label"></label>
+        <input asp-for="Royalty" class="form-control"
+               type="number" min="0" max="100"
+               title="Royalty must be between 0–100" />
+        <span asp-validation-for="Royalty" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="YtdSales" class="form-label"></label>
+        <input asp-for="YtdSales" class="form-control"
+               type="number" min="0"
+               title="YTD Sales must be 0 or higher" />
+        <span asp-validation-for="YtdSales" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Notes" class="form-label"></label>
+        <textarea asp-for="Notes" class="form-control"
+                  maxlength="200"
+                  placeholder="Optional notes (max 200 chars)"
+                  title="Notes can be up to 200 characters"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="PubDate" class="form-label"></label>
+        <input asp-for="PubDate" class="form-control"
+               type="date"
+               required
+               title="Please provide a valid publication date" />
+        <span asp-validation-for="PubDate" class="text-danger"></span>
+    </div>
+</div>
