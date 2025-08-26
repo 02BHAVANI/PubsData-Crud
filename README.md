@@ -32,9 +32,6 @@ It provides full functionality to **search, list, add, edit, and delete** record
 ```bash
 git clone https://github.com/02BHAVANI/PubsData-Crud.git
 cd PubsData-Crud
-
-git clone https://github.com/02BHAVANI/PubsData-Crud.git
-cd PubsData-Crud
 ```
 
 ### 2. Database Setup
@@ -48,7 +45,7 @@ Run the instpubs.sql script to create the pubs database on your local SQL Server
 Open the file appsettings.json.
 Update the connection string to point to your SQL Server instance:
 
-<pre> ```json { "ConnectionStrings": { "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=pubs;Trusted_Connection=True;MultipleActiveResultSets=true" } } ``` </pre>
+```json { "ConnectionStrings": { "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=pubs;Trusted_Connection=True;MultipleActiveResultSets=true" } } ```
 
 Replace YOUR_SERVER_NAME with your actual SQL Server instance name.
 
