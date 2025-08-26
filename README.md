@@ -35,3 +35,28 @@ cd PubsData-Crud
 
 git clone https://github.com/02BHAVANI/PubsData-Crud.git
 cd PubsData-Crud
+```
+
+### 2. Database Setup
+
+Download the Pubs sample database.
+Open SQL Server Management Studio (SSMS).
+Run the instpubs.sql script to create the pubs database on your local SQL Server instance.
+
+### 3. Configure Connection String
+
+Open the file appsettings.json.
+Update the connection string to point to your SQL Server instance:
+
+<pre> ```json { "ConnectionStrings": { "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=pubs;Trusted_Connection=True;MultipleActiveResultSets=true" } } ``` </pre>
+
+Replace YOUR_SERVER_NAME with your actual SQL Server instance name.
+
+### 4. Restore Dependencies
+
+Make sure you have the .NET SDK installed. Restore required packages:
+
+```dotnet restore```
+
+### 5. Run the Application
+```dotnet run```
